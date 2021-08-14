@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SimpleMenuExample</string>
+
+    <!--    title-->
+    <string name="title_recycler_view">RecyclerView</string>
+    <string name="title_snackbar_view">SnackBarView</string>
 </resources>

@@ -1,18 +1,26 @@
 package com.example.simplemenuexample.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplemenuexample.R
 import com.example.simplemenuexample.models.data.MenuData
+import com.example.simplemenuexample.utils.Constants.TAG
 
 
-class MenuAdapter : RecyclerView.Adapter<MenuItemViewHolder>() {
-    private var menuList = mutableListOf<MenuData>()
+class MenuAdapter(val menuList: ArrayList<MenuData>, clickInterface: ClickInterface) : RecyclerView.Adapter<MenuItemViewHolder>() {
+    private var mClickInterface: ClickInterface? = null
+    private var mMenuList: ArrayList<MenuData>
+
+    init {
+        this.mClickInterface = clickInterface
+        this.mMenuList = ArrayList()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuItemViewHolder {
         val itemViewHolder = LayoutInflater.from(parent.context).inflate(R.layout.item_menu, parent, false)
-        return MenuItemViewHolder(itemViewHolder)
+        return MenuItemViewHolder(itemViewHolder, this.mClickInterface!!)
     }
 
     override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {
@@ -23,8 +31,8 @@ class MenuAdapter : RecyclerView.Adapter<MenuItemViewHolder>() {
         return menuList.size
     }
 
-    fun setItems(it: List<MenuData>) {
-        this.menuList = it.toMutableList()
+    fun submitMenuList(array: ArrayList<MenuData>) {
+        this.mMenuList = menuList
         notifyDataSetChanged()
     }
 
