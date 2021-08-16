@@ -9,5 +9,7 @@ class RecyclerViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view)
         title = resources.getString(R.string.title_recycler_view)
+
     }
+
 }
