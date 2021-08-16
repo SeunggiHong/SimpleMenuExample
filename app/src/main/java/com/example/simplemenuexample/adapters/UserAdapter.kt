@@ -8,7 +8,7 @@ import com.example.simplemenuexample.R
 
 class UserAdapter(): RecyclerView.Adapter<UserItemViewHolder>() {
 
-    var _userList = mutableListOf<UserData>()
+    var userList = mutableListOf<UserData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserItemViewHolder {
         val userItemViewHolder = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent,false)
@@ -16,14 +16,11 @@ class UserAdapter(): RecyclerView.Adapter<UserItemViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: UserItemViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bindViewHolder(this.userList[position])
     }
 
     override fun getItemCount(): Int {
-        return _userList.size
+        return userList.size
     }
-
-
-
 
 }

@@ -7,4 +7,5 @@ object Constants {
 object Menu {
     const val MENU_RECYCLER_VIEW = 0
     const val MENU_SNACKBAR_VIEW = 1
+    const val MENU_POPUP_DIALOG_VIEW = 2
 }

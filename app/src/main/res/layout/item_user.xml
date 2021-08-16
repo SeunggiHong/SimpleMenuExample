@@ -41,7 +41,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="tmdrl1026@naver.com"
-                android:drawableStart="@drawable/ic_baseline_email_24"
                 android:textSize="13sp"
                 />
             <TextView
@@ -49,7 +48,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="82-10-4482-6574"
-                android:drawableStart="@drawable/ic_baseline_phone_iphone_24"
                 />
 
         </LinearLayout>

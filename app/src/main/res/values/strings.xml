@@ -4,4 +4,7 @@
     <!--    title-->
     <string name="title_recycler_view">RecyclerView</string>
     <string name="title_snackbar_view">SnackBarView</string>
+    <string name="title_user_add_view">Dialog</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
