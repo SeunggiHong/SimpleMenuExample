@@ -12,16 +12,15 @@ import com.example.simplemenuexample.utils.Constants.TAG
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val myRepository: MyRepository = MyRepository(application)
-    private val allMenuList = myRepository.getMenuList()
-    private val _allUserList = myRepository.getUserList()
+    private val allUserList: LiveData<List<UserData>> = myRepository.getUserList()
 
-    fun getAllMenuList(): ArrayList<MenuData>{
-        return allMenuList
+    init {
+        Log.d(TAG, "MainViewModel - () {$application}")
     }
 
     fun getAllUserList(): LiveData<List<UserData>> {
         Log.d(TAG, "MainViewModel - getAllUserList() called")
-        return _allUserList
+        return allUserList
     }
 
 }

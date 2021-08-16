@@ -9,13 +9,14 @@ import com.example.simplemenuexample.models.data.MenuData
 import com.example.simplemenuexample.utils.Constants.TAG
 
 
-class MenuAdapter(val menuList: ArrayList<MenuData>, clickInterface: ClickInterface) : RecyclerView.Adapter<MenuItemViewHolder>() {
+class MenuAdapter(clickInterface: ClickInterface) : RecyclerView.Adapter<MenuItemViewHolder>() {
     private var mClickInterface: ClickInterface? = null
     private var mMenuList: ArrayList<MenuData>
 
     init {
         this.mClickInterface = clickInterface
         this.mMenuList = ArrayList()
+        initMenuData()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuItemViewHolder {
@@ -24,16 +25,21 @@ class MenuAdapter(val menuList: ArrayList<MenuData>, clickInterface: ClickInterf
     }
 
     override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {
-        holder.bindViewHolder(this.menuList[position])
+        holder.bindViewHolder(this.mMenuList[position])
     }
 
     override fun getItemCount(): Int {
-        return menuList.size
+        return mMenuList.size
     }
 
-    fun submitMenuList(array: ArrayList<MenuData>) {
-        this.mMenuList = menuList
-        notifyDataSetChanged()
+    private fun initMenuData() {
+        mMenuList.add(MenuData("RecyclerView", "RecyclerView"))
+        mMenuList.add(MenuData("SnackBar", "SnackBarView"))
+        mMenuList.add(MenuData("Popup Dialog", "Popup DialogView"))
+        mMenuList.add(MenuData("BottomSheetDialog", "BottomSheetDialog"))
+        mMenuList.add(MenuData("seunggiHong", "tmdrl1026@naver.com"))
+        mMenuList.add(MenuData("seunggiHong", "tmdrl1026@naver.com"))
+        mMenuList.add(MenuData("seunggiHong", "tmdrl1026@naver.com"))
     }
 
 }

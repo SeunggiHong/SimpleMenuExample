@@ -22,7 +22,7 @@ import kotlin.math.log
 
 class MainActivity : AppCompatActivity(), ClickInterface {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var memberAdapter: MenuAdapter
+    private lateinit var menuAdapter: MenuAdapter
 
     private val mainViewModel: MainViewModel by viewModel()
 
@@ -52,15 +52,20 @@ class MainActivity : AppCompatActivity(), ClickInterface {
     }
 
     private fun initAdapter() {
-        memberAdapter = MenuAdapter(mainViewModel.getAllMenuList(), this)
+//        memberAdapter = MenuAdapter(mainViewModel.getAllMenuList(), this)
+        rc_main_view.layoutManager = LinearLayoutManager(this)
+        menuAdapter = MenuAdapter(this)
+        rc_main_view.adapter = menuAdapter
+//        menuAdapter.submitMenuList(mainViewModel.getAllMenuList())
 
-        rc_main_view.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
-            adapter = memberAdapter
-        }
+//        rc_main_view.apply {
+//            layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+//            adapter = memberAdapter()
+//        }
     }
 
     private fun initViewModel() {
+
 
     }
 
