@@ -6,8 +6,12 @@
     <string name="title_snackbar_view">SnackBarView</string>
     <string name="title_user_add_view">Dialog</string>
 
+    <!--    btn-->
+    <string name="btn_user_add_save">Save</string>
+
     <!--    hint-->
-    <string name="hint_user_add_name">이름을 입력하세요.</string>
-    <string name="hint_user_add_email">이메일을 입력하세요.</string>
-    <string name="hint_user_add_phone">전화번호를 입력하세요.</string>
+    <string name="hint_user_add_name">Please enter your name.</string>
+    <string name="hint_user_add_email">Please enter your email.</string>
+    <string name="hint_user_add_phone">Please enter your phone number.</string>
+    <string name="hint_user_add_content">Please enter your self-introduction.</string>
 </resources>

@@ -52,16 +52,9 @@ class MainActivity : AppCompatActivity(), ClickInterface {
     }
 
     private fun initAdapter() {
-//        memberAdapter = MenuAdapter(mainViewModel.getAllMenuList(), this)
         rc_main_view.layoutManager = LinearLayoutManager(this)
         menuAdapter = MenuAdapter(this)
         rc_main_view.adapter = menuAdapter
-//        menuAdapter.submitMenuList(mainViewModel.getAllMenuList())
-
-//        rc_main_view.apply {
-//            layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
-//            adapter = memberAdapter()
-//        }
     }
 
     private fun initViewModel() {
@@ -87,15 +80,9 @@ class MainActivity : AppCompatActivity(), ClickInterface {
     }
 
     private fun showDialog() {
-        val fragmentManager = supportFragmentManager
-        val newFragment = UserAddDialogFragment()
-        val transaction = fragmentManager.beginTransaction()
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-
-        transaction
-            .add(android.R.id.content, newFragment)
-            .addToBackStack(null)
-            .commit()
+        val dialog = UserAddDialogFragment()
+        dialog.isCancelable = false
+        dialog.show(supportFragmentManager, "UserAddDialog")
     }
 
 }
