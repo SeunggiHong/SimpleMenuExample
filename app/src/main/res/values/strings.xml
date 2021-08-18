@@ -13,6 +13,10 @@
 
     <!--   dialog-->
     <string name="text_permission">Please set permissions in settings.</string>
+    <string name="text_user_name">Seunggi Hong</string>
+    <string name="text_user_email">tmdrl1026@naver.com</string>
+    <string name="text_user_phone">821044826574</string>
+    <string name="text_user_content">I love Android</string>
 
     <!--    hint-->
     <string name="hint_user_add_name">Please enter your name.</string>
@@ -22,6 +26,8 @@
     <string name="hint_user_add_no_data">This is a required entry.</string>
 
     <!--    toast-->
+    <string name="toast_user_delete">User has been deleted :(</string>
+    <string name="toast_user_add_success">User has been added!!!</string>
     <string name="toast_user_add_no_data">There are unfilled items..</string>
     <string name="toast_user_add_no_pic">Unable to load photos..</string>
 </resources>

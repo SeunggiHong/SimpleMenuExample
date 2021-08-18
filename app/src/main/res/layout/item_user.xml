@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardCornerRadius="15dp"
+    android:elevation="10dp"
     >
 
     <LinearLayout
@@ -15,11 +16,15 @@
         android:orientation="horizontal"
         android:background="?attr/selectableItemBackground"
         >
-        <ImageView
-            android:id="@+id/iv_user"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="20dp"
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_user_pic"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_margin="30dp"
+            android:src="@drawable/ic_baseline_account_circle_24"
+            app:civ_border_width="0.5dp"
+            app:civ_border_color="#ff000000"
             />
 
         <LinearLayout
@@ -30,27 +35,42 @@
             android:layout_gravity="center_vertical"
             >
             <TextView
-                android:id="@+id/tv_username"
+                android:id="@+id/tv_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="seunggiHong"
+                android:text="@string/text_user_name"
                 android:textSize="25sp"
                 />
             <TextView
-                android:id="@+id/tv_usermail"
+                android:id="@+id/tv_user_mail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="tmdrl1026@naver.com"
+                android:text="@string/text_user_email"
                 android:textSize="13sp"
                 />
             <TextView
-                android:id="@+id/tv_phone"
+                android:id="@+id/tv_user_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="82-10-4482-6574"
+                android:text="@string/text_user_phone"
+                />
+            <TextView
+                android:id="@+id/tv_user_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_user_content"
                 />
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_user_delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end"
+        android:layout_margin="5dp"
+        android:background="@drawable/ic_baseline_close_24"
+        />
 </androidx.cardview.widget.CardView>

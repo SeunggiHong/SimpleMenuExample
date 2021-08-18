@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleMenuExample">
         <activity android:name=".views.SnackBarActivity"></activity>
-        <activity android:name=".views.UserRecyclerViewActivity" />
+        <activity android:name=".views.UserActivity" />
         <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

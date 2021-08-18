@@ -8,10 +8,9 @@ import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplemenuexample.R
-import com.example.simplemenuexample.adapters.ClickInterface
+import com.example.simplemenuexample.adapters.interfaces.MenuClickInterface
 import com.example.simplemenuexample.adapters.MenuAdapter
 import com.example.simplemenuexample.databinding.ActivityMainBinding
 import com.example.simplemenuexample.utils.Constants
@@ -22,9 +21,8 @@ import com.example.simplemenuexample.utils.Menu.MENU_SNACKBAR_VIEW
 import com.example.simplemenuexample.viewmodels.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import kotlin.math.log
 
-class MainActivity : AppCompatActivity(), ClickInterface {
+class MainActivity : AppCompatActivity(), MenuClickInterface {
     private lateinit var binding: ActivityMainBinding
     private lateinit var menuAdapter: MenuAdapter
 
@@ -32,13 +30,12 @@ class MainActivity : AppCompatActivity(), ClickInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "MainActivity - onCreate() called")
         setupPermissions()
         title = getString(R.string.app_name)
         initView()
         initAdapter()
         initViewModel()
-        
-        Log.d(TAG, "MainActivity - onCreate() called")
     }
 
     override fun onStart() {
@@ -62,15 +59,12 @@ class MainActivity : AppCompatActivity(), ClickInterface {
         rc_main_view.adapter = menuAdapter
     }
 
-    private fun initViewModel() {
-
-
-    }
+    private fun initViewModel() { }
 
     override fun onMenuClicked(pos :Int) {
         when(pos) {
             MENU_RECYCLER_VIEW -> {
-                val intent = Intent(this, UserRecyclerViewActivity::class.java)
+                val intent = Intent(this, UserActivity::class.java)
                 startActivity(intent)
             }
             MENU_SNACKBAR_VIEW -> {

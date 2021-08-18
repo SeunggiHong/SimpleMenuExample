@@ -28,6 +28,7 @@ import com.example.simplemenuexample.utils.Constants
 
 import com.example.simplemenuexample.utils.Constants.TAG
 import com.example.simplemenuexample.viewmodels.MainViewModel
+import kotlinx.coroutines.DelicateCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -90,19 +91,21 @@ class UserAddDialogFragment : DialogFragment() {
         dialog?.window?.setLayout(percentWidth.toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
+    @DelicateCoroutinesApi
     private fun saveUser() {
         if(checkEditText()) {
             val id = if(userData != null) userData?.id else null
             val userData = UserData(
                 id = id,
-                userName    = binding.etName.toString(),
-                userEmail   = binding.etEmail.toString().trim(),
-                userPhone   = binding.etPhone.toString().trim(),
-                userContent = binding.etContent.toString().trim(),
+                userName    = binding.etName.text.toString(),
+                userEmail   = binding.etEmail.text.toString().trim(),
+                userPhone   = binding.etPhone.text.toString().trim(),
+                userContent = binding.etContent.text.toString().trim(),
                 userImage   = imageUri
             )
             viewModel.insertUser(userData)
-
+            Toast.makeText(context, R.string.toast_user_add_success, Toast.LENGTH_SHORT).show()
+            dismiss()
         } else {
           Toast.makeText(context, R.string.toast_user_add_no_data, Toast.LENGTH_SHORT).show()
         }

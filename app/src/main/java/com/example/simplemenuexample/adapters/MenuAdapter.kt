@@ -1,16 +1,15 @@
 package com.example.simplemenuexample.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplemenuexample.R
+import com.example.simplemenuexample.adapters.interfaces.MenuClickInterface
 import com.example.simplemenuexample.models.data.MenuData
-import com.example.simplemenuexample.utils.Constants.TAG
 
 
-class MenuAdapter(clickInterface: ClickInterface) : RecyclerView.Adapter<MenuItemViewHolder>() {
-    private var mClickInterface: ClickInterface? = null
+class MenuAdapter(clickInterface: MenuClickInterface) : RecyclerView.Adapter<MenuItemViewHolder>() {
+    private var mClickInterface: MenuClickInterface? = null
     private var mMenuList: ArrayList<MenuData>
 
     init {
