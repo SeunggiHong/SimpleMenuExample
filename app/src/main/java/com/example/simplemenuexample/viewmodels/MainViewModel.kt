@@ -30,4 +30,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         myRepository.insertUser(user)
     }
 
+    @DelicateCoroutinesApi
+    fun deleteUser(user: UserData) {
+        Log.d(TAG, "MainViewModel - deleteUser() called")
+        myRepository.deleteUser(user)
+    }
+
 }

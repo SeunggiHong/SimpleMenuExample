@@ -37,4 +37,11 @@ class MyRepository(application: Application) {
         }
     }
 
+    @DelicateCoroutinesApi
+    fun deleteUser(user: UserData) {
+        GlobalScope.launch(Dispatchers.IO) {
+            userDao.delete(user)
+        }
+    }
+
 }
