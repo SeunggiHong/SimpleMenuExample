@@ -23,4 +23,5 @@
 
     <!--    toast-->
     <string name="toast_user_add_no_data">There are unfilled items..</string>
+    <string name="toast_user_add_no_pic">Unable to load photos..</string>
 </resources>

@@ -1,11 +1,14 @@
 package com.example.simplemenuexample.views
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Point
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -14,11 +17,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
+import com.bumptech.glide.Glide
 import com.example.simplemenuexample.R
 import com.example.simplemenuexample.databinding.DialogUserAddBinding
 import com.example.simplemenuexample.models.data.UserData
+import com.example.simplemenuexample.utils.Constants
 
 import com.example.simplemenuexample.utils.Constants.TAG
 import com.example.simplemenuexample.viewmodels.MainViewModel
@@ -31,6 +37,7 @@ class UserAddDialogFragment : DialogFragment() {
 
     private val viewModel: MainViewModel by viewModel()
     private val userData: UserData? = null
+    private var imageUri: Uri? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +65,10 @@ class UserAddDialogFragment : DialogFragment() {
             dismiss()
         }
 
+        binding.ivProfile.setOnClickListener {
+            openGalleryForImage()
+        }
+
         binding.btnSave.setOnClickListener {
             saveUser()
         }
@@ -80,7 +91,6 @@ class UserAddDialogFragment : DialogFragment() {
     }
 
     private fun saveUser() {
-
         if(checkEditText()) {
             val id = if(userData != null) userData?.id else null
             val userData = UserData(
@@ -89,17 +99,44 @@ class UserAddDialogFragment : DialogFragment() {
                 userEmail   = binding.etEmail.toString().trim(),
                 userPhone   = binding.etPhone.toString().trim(),
                 userContent = binding.etContent.toString().trim(),
-                userImage   = ""
+                userImage   = imageUri
             )
             viewModel.insertUser(userData)
 
         } else {
           Toast.makeText(context, R.string.toast_user_add_no_data, Toast.LENGTH_SHORT).show()
         }
-
     }
 
+    private fun openGalleryForImage() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        activityLauncher.launch(intent)
+    }
+
+    private val activityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data!!.data
+            Log.d(TAG, "UserAddDialogFragment activityLauncher data : {$data}")
+            if (data != null) {
+                Glide.with(this)
+                    .load(data)
+                    .placeholder(R.drawable.ic_default_user)
+                    .into(binding.ivProfile)
+                imageUri = data
+            } else {
+                Toast.makeText(context, R.string.toast_user_add_no_pic, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
     private fun checkEditText(): Boolean {
+        if(imageUri == null) {
+            binding.ivProfile.requestFocus()
+            return false
+        }
+
         if(binding.etName.text.isNullOrEmpty()) {
             binding.tlName.error = resources.getString(R.string.hint_user_add_no_data)
             binding.etName.requestFocus()
