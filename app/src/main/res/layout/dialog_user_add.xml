@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_user_add_email"
                     android:inputType="textEmailAddress"
-                    android:maxLength="15"
+                    android:maxLength="20"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 

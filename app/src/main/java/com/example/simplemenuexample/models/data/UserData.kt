@@ -15,5 +15,5 @@ data class UserData(
     @ColumnInfo(name = "userEmail") var userEmail: String,
     @ColumnInfo(name = "userPhone") var userPhone: String,
     @ColumnInfo(name = "userContent") var userContent: String,
-    @ColumnInfo(name = "userImage") var userImage: Uri?
+    @ColumnInfo(name = "userImage") var userImage: String?
 ) : Parcelable

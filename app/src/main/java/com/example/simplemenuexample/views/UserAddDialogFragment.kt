@@ -37,7 +37,7 @@ class UserAddDialogFragment : DialogFragment() {
 
     private val viewModel: MainViewModel by viewModel()
     private val userData: UserData? = null
-    private var imageUri: Uri? = null
+    private var imageUri: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,7 +95,7 @@ class UserAddDialogFragment : DialogFragment() {
             val id = if(userData != null) userData?.id else null
             val userData = UserData(
                 id = id,
-                userName    = binding.etName.toString().trim(),
+                userName    = binding.etName.toString(),
                 userEmail   = binding.etEmail.toString().trim(),
                 userPhone   = binding.etPhone.toString().trim(),
                 userContent = binding.etContent.toString().trim(),
@@ -123,7 +123,7 @@ class UserAddDialogFragment : DialogFragment() {
                     .load(data)
                     .placeholder(R.drawable.ic_default_user)
                     .into(binding.ivProfile)
-                imageUri = data
+                imageUri = data.toString()
             } else {
                 Toast.makeText(context, R.string.toast_user_add_no_pic, Toast.LENGTH_SHORT).show()
             }
