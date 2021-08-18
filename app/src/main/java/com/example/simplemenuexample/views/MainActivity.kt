@@ -1,9 +1,12 @@
 package com.example.simplemenuexample.views
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +14,7 @@ import com.example.simplemenuexample.R
 import com.example.simplemenuexample.adapters.ClickInterface
 import com.example.simplemenuexample.adapters.MenuAdapter
 import com.example.simplemenuexample.databinding.ActivityMainBinding
+import com.example.simplemenuexample.utils.Constants
 import com.example.simplemenuexample.utils.Constants.TAG
 import com.example.simplemenuexample.utils.Menu.MENU_POPUP_DIALOG_VIEW
 import com.example.simplemenuexample.utils.Menu.MENU_RECYCLER_VIEW
@@ -28,6 +32,7 @@ class MainActivity : AppCompatActivity(), ClickInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupPermissions()
         title = getString(R.string.app_name)
         initView()
         initAdapter()
@@ -73,16 +78,55 @@ class MainActivity : AppCompatActivity(), ClickInterface {
                 startActivity(intent)
             }
             MENU_POPUP_DIALOG_VIEW -> {
-                showDialog()
+                showUserAddDialog()
             }
         }
 
     }
 
-    private fun showDialog() {
+    private fun showUserAddDialog() {
         val dialog = UserAddDialogFragment()
         dialog.isCancelable = false
         dialog.show(supportFragmentManager, "UserAddDialog")
+    }
+
+    private fun showPermissionDialog() {
+        val dialog = PermissionDialog()
+        dialog.show(supportFragmentManager, "Permission")
+    }
+
+    private fun setupPermissions() {
+        val cameraPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+        val readPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+
+        if (cameraPermission!= PackageManager.PERMISSION_GRANTED && readPermission != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE
+                ), Constants.REQUEST_CODE
+            )
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        when (requestCode) {
+            Constants.REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission is granted. Continue the action or workflow
+                    // in your app.
+                } else {
+                    showPermissionDialog()
+                }
+                return
+            }
+        }
     }
 
 }

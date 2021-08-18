@@ -8,6 +8,10 @@ import com.example.simplemenuexample.models.data.UserData
 import com.example.simplemenuexample.models.db.UserDao
 import com.example.simplemenuexample.models.db.UserDatabase
 import com.example.simplemenuexample.utils.Constants.TAG
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MyRepository(application: Application) {
 
@@ -24,6 +28,13 @@ class MyRepository(application: Application) {
 
     fun getUserList(): LiveData<List<UserData>> {
         return this._allUserList
+    }
+
+    @DelicateCoroutinesApi
+    fun insertUser(user: UserData) {
+        GlobalScope.launch(Dispatchers.IO) {
+            userDao.insert(user)
+        }
     }
 
 }

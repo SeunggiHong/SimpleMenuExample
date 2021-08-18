@@ -8,6 +8,7 @@ import com.example.simplemenuexample.models.data.MenuData
 import com.example.simplemenuexample.models.data.UserData
 import com.example.simplemenuexample.models.repository.MyRepository
 import com.example.simplemenuexample.utils.Constants.TAG
+import kotlinx.coroutines.DelicateCoroutinesApi
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -21,6 +22,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun getAllUserList(): LiveData<List<UserData>> {
         Log.d(TAG, "MainViewModel - getAllUserList() called")
         return allUserList
+    }
+
+    @DelicateCoroutinesApi
+    fun insertUser(user: UserData) {
+        Log.d(TAG, "MainViewModel - insertUser() user = {$user}")
+        myRepository.insertUser(user)
     }
 
 }

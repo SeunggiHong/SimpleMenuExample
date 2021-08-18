@@ -8,13 +8,13 @@ import com.example.simplemenuexample.models.data.UserData
 interface UserDao {
 
     @Insert
-    fun insert(user: UserData)
+    suspend fun insert(user: UserData)
 
     @Delete
-    fun delete(user: UserData)
+    suspend fun delete(user: UserData)
 
     @Update
-    fun update(user: UserData)
+    suspend fun update(user: UserData)
 
     @Query("SELECT * FROM users")
     fun getAllUserList(): LiveData<List<UserData>>

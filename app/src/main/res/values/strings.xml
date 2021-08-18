@@ -8,10 +8,19 @@
 
     <!--    btn-->
     <string name="btn_user_add_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_go_settings">go setting..</string>
+
+    <!--   dialog-->
+    <string name="text_permission">Please set permissions in settings.</string>
 
     <!--    hint-->
     <string name="hint_user_add_name">Please enter your name.</string>
     <string name="hint_user_add_email">Please enter your email.</string>
     <string name="hint_user_add_phone">Please enter your phone number.</string>
     <string name="hint_user_add_content">Please enter your self-introduction.</string>
+    <string name="hint_user_add_no_data">This is a required entry.</string>
+
+    <!--    toast-->
+    <string name="toast_user_add_no_data">There are unfilled items..</string>
 </resources>

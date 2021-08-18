@@ -2,6 +2,8 @@ package com.example.simplemenuexample.utils
 
 object Constants {
     const val TAG: String = "logMsg"
+
+    const val REQUEST_CODE: Int = 101
 }
 
 object Menu {
