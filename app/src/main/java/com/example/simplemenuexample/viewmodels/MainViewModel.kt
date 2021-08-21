@@ -4,24 +4,31 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.example.simplemenuexample.models.data.MenuData
+import androidx.lifecycle.MutableLiveData
+import com.example.simplemenuexample.models.api.ApiHelperImpl
+import com.example.simplemenuexample.models.api.RetrofitBuilder
+import com.example.simplemenuexample.models.data.TestUserData
 import com.example.simplemenuexample.models.data.UserData
 import com.example.simplemenuexample.models.repository.MyRepository
 import com.example.simplemenuexample.utils.Constants.TAG
+import com.example.simplemenuexample.utils.ResultResponse
 import kotlinx.coroutines.DelicateCoroutinesApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val myRepository: MyRepository = MyRepository(application)
-    private val allUserList: LiveData<List<UserData>> = myRepository.getUserList()
+    private val _allUserList: LiveData<List<UserData>> = myRepository.getUserList()
 
     init {
-        Log.d(TAG, "MainViewModel - () {$application}")
     }
 
     fun getAllUserList(): LiveData<List<UserData>> {
         Log.d(TAG, "MainViewModel - getAllUserList() called")
-        return allUserList
+        return _allUserList
     }
 
     @DelicateCoroutinesApi

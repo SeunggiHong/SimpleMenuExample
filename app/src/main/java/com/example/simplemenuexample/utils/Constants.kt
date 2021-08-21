@@ -11,3 +11,9 @@ object Menu {
     const val MENU_SNACKBAR_VIEW = 1
     const val MENU_POPUP_DIALOG_VIEW = 2
 }
+
+enum class Status {
+    SUCCESS,
+    ERROR,
+    LOADING
+}

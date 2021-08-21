@@ -1,6 +1,7 @@
 package com.example.simplemenuexample.di
 
 import com.example.simplemenuexample.viewmodels.MainViewModel
+import com.example.simplemenuexample.viewmodels.TestViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.scope.get
@@ -12,4 +13,8 @@ val appModule = module {
         MainViewModel(androidApplication())
     }
 
+}
+
+val appTestModule = module {
+    TestViewModel()
 }
