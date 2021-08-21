@@ -16,5 +16,7 @@ val appModule = module {
 }
 
 val appTestModule = module {
-    TestViewModel()
+    viewModel {
+        TestViewModel()
+    }
 }
