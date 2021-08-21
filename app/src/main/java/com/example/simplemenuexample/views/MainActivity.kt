@@ -92,12 +92,14 @@ class MainActivity : AppCompatActivity(), MenuClickInterface {
     private fun setupPermissions() {
         val cameraPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
         val readPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        val internetPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.INTERNET)
 
         if (cameraPermission!= PackageManager.PERMISSION_GRANTED && readPermission != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                 arrayOf(
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    android.Manifest.permission.READ_EXTERNAL_STORAGE
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.INTERNET
                 ), Constants.REQUEST_CODE
             )
         }
