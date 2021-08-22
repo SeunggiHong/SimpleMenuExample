@@ -10,6 +10,7 @@
     <string name="btn_user_add_save">Save</string>
     <string name="btn_cancel">Cancel</string>
     <string name="btn_go_settings">go setting..</string>
+    <string name="btn_get_api">get Api</string>
 
     <!--   dialog-->
     <string name="text_permission">Please set permissions in settings.</string>
@@ -30,4 +31,8 @@
     <string name="toast_user_add_success">User has been added!!!</string>
     <string name="toast_user_add_no_data">There are unfilled items..</string>
     <string name="toast_user_add_no_pic">Unable to load photos..</string>
+
+    <!--    snack-->
+    <string name="snack_start_get_api">Start server connection..</string>
+    <string name="snack_failed_get_api">Server connection failed..</string>
 </resources>

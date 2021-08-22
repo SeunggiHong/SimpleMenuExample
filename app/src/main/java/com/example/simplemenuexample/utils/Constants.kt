@@ -4,6 +4,8 @@ object Constants {
     const val TAG: String = "logMsg"
 
     const val REQUEST_CODE: Int = 101
+    const val SNACK_REQUEST: Int = 301
+    const val SNACK_RETRY: Int = 302
 }
 
 object Menu {
