@@ -30,7 +30,6 @@ class TestViewModel: ViewModel() {
                 }
 
             })
-
     }
 
     fun getTestUsers(): LiveData<ResultResponse<TestUserData>?> {

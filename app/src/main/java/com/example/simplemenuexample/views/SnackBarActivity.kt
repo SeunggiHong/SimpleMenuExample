@@ -34,10 +34,10 @@ class SnackBarActivity : AppCompatActivity() {
         title = resources.getString(R.string.title_snackbar_view)
         initView()
         initAdapter()
-        initViewModel()
 
         binding.btnSnackBar.setOnClickListener {
             CustomSnackBar.make(binding.clLayout, Constants.SNACK_REQUEST, resources.getString(R.string.snack_start_get_api)).show()
+            getTestUsers()
         }
 
     }
@@ -65,8 +65,7 @@ class SnackBarActivity : AppCompatActivity() {
         }
     }
 
-    private fun initViewModel() {
-        Log.d(TAG, "SnackBarActivity - initViewModel() called")
+    private fun getTestUsers() {
         testViewModel.getTestUsers().observe(this, Observer { response ->
             when(response?.status) {
                 Status.SUCCESS -> {
