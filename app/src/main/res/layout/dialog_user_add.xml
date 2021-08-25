@@ -12,7 +12,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".views.UserAddDialogFragment">
+            tools:context=".views.subview.UserAddDialogFragment">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_profile"

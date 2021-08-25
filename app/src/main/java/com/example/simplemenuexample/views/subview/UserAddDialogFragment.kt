@@ -1,30 +1,23 @@
-package com.example.simplemenuexample.views
+package com.example.simplemenuexample.views.subview
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Color
-import android.graphics.Point
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import com.bumptech.glide.Glide
 import com.example.simplemenuexample.R
 import com.example.simplemenuexample.databinding.DialogUserAddBinding
 import com.example.simplemenuexample.models.data.UserData
-import com.example.simplemenuexample.utils.Constants
 
 import com.example.simplemenuexample.utils.Constants.TAG
 import com.example.simplemenuexample.viewmodels.MainViewModel

@@ -21,6 +21,8 @@ import com.example.simplemenuexample.utils.Menu.MENU_RECYCLER_VIEW
 import com.example.simplemenuexample.utils.Menu.MENU_SNACKBAR_VIEW
 import com.example.simplemenuexample.viewmodels.MainViewModel
 import com.example.simplemenuexample.views.subview.CustomBottomDialog
+import com.example.simplemenuexample.views.subview.PermissionDialog
+import com.example.simplemenuexample.views.subview.UserAddDialogFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
