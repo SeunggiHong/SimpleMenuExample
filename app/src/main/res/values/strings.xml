@@ -5,6 +5,8 @@
     <string name="title_recycler_view">RecyclerView</string>
     <string name="title_snackbar_view">SnackBarView</string>
     <string name="title_user_add_view">Dialog</string>
+    <string name="title_bottom_sheet_dialog">BottomSheetDialog</string>
+    <string name="title_view_pager">ViewPager2</string>
 
     <!--    btn-->
     <string name="btn_user_add_save">Save</string>

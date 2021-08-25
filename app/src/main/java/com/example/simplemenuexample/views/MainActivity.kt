@@ -15,10 +15,12 @@ import com.example.simplemenuexample.adapters.MenuAdapter
 import com.example.simplemenuexample.databinding.ActivityMainBinding
 import com.example.simplemenuexample.utils.Constants
 import com.example.simplemenuexample.utils.Constants.TAG
+import com.example.simplemenuexample.utils.Menu.MENU_BOTTOM_SHEET_DIALOG
 import com.example.simplemenuexample.utils.Menu.MENU_POPUP_DIALOG_VIEW
 import com.example.simplemenuexample.utils.Menu.MENU_RECYCLER_VIEW
 import com.example.simplemenuexample.utils.Menu.MENU_SNACKBAR_VIEW
 import com.example.simplemenuexample.viewmodels.MainViewModel
+import com.example.simplemenuexample.views.subview.CustomBottomDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -74,6 +76,9 @@ class MainActivity : AppCompatActivity(), MenuClickInterface {
             MENU_POPUP_DIALOG_VIEW -> {
                 showUserAddDialog()
             }
+            MENU_BOTTOM_SHEET_DIALOG -> {
+                showBottomSheetDialog()
+            }
         }
 
     }
@@ -87,6 +92,11 @@ class MainActivity : AppCompatActivity(), MenuClickInterface {
     private fun showPermissionDialog() {
         val dialog = PermissionDialog()
         dialog.show(supportFragmentManager, "Permission")
+    }
+
+    private fun showBottomSheetDialog() {
+        val dialog = CustomBottomDialog()
+        dialog.show(supportFragmentManager, "BottomSheet")
     }
 
     private fun setupPermissions() {

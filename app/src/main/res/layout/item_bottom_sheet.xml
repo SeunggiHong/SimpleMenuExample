@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_bottomsheet"
+        >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_v1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.3"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_bottom_sheet_dialog"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/guideline_v1"
+            />
+
+        <View
+            android:id="@+id/view_guide1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="10dp"
+            android:text="@string/title_recycler_view"
+            android:textSize="25sp"
+            android:drawableStart="@drawable/ic_baseline_menu_open_24"
+            app:layout_constraintTop_toBottomOf="@id/view_guide1"
+            />
+
+        <View
+            android:id="@+id/view_guide2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/tv_recycler"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_snack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="10dp"
+            android:text="@string/title_snackbar_view"
+            android:textSize="25sp"
+            android:drawableStart="@drawable/ic_baseline_cookie_24"
+            app:layout_constraintTop_toBottomOf="@id/view_guide2"
+            />
+
+        <View
+            android:id="@+id/view_guide3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/tv_snack"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_popup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="10dp"
+            android:text="@string/title_user_add_view"
+            android:textSize="25sp"
+            android:drawableStart="@drawable/ic_baseline_add_reaction_24"
+            app:layout_constraintTop_toBottomOf="@id/tv_snack"
+            />
+
+        <View
+            android:id="@+id/view_guide4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/tv_popup"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="10dp"
+            android:text="@string/title_view_pager"
+            android:textSize="25sp"
+            android:drawableStart="@drawable/ic_baseline_contact_page_24"
+            app:layout_constraintTop_toBottomOf="@id/tv_popup"
+            />
+
+        <View
+            android:id="@+id/view_guide5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/tv_viewpager"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

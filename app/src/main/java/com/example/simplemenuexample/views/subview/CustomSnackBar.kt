@@ -1,4 +1,4 @@
-package com.example.simplemenuexample.utils
+package com.example.simplemenuexample.views.subview
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.example.simplemenuexample.R
 import com.example.simplemenuexample.databinding.ItemSnackbarBinding
+import com.example.simplemenuexample.utils.Constants
 import com.example.simplemenuexample.viewmodels.TestViewModel
 import com.google.android.material.snackbar.Snackbar
 import org.koin.core.component.KoinComponent

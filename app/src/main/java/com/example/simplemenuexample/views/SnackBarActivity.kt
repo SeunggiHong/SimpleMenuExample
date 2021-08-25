@@ -3,7 +3,6 @@ package com.example.simplemenuexample.views
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,10 +12,9 @@ import com.example.simplemenuexample.databinding.ActivitySnackBarBinding
 import com.example.simplemenuexample.models.data.TestItem
 import com.example.simplemenuexample.utils.Constants
 import com.example.simplemenuexample.utils.Constants.TAG
-import com.example.simplemenuexample.utils.CustomSnackBar
 import com.example.simplemenuexample.utils.Status
 import com.example.simplemenuexample.viewmodels.TestViewModel
-import com.google.android.material.snackbar.Snackbar
+import com.example.simplemenuexample.views.subview.CustomSnackBar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_snack_bar.*
 import kotlinx.android.synthetic.main.activity_user_recycler_view.*
