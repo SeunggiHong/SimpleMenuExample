@@ -45,6 +45,7 @@ class UserAddDialogFragment : DialogFragment() {
         setWidthPercent(85)
     }
 
+    @DelicateCoroutinesApi
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
