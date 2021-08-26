@@ -15,9 +15,6 @@ import com.example.simplemenuexample.utils.Constants.TAG
 import com.example.simplemenuexample.utils.Status
 import com.example.simplemenuexample.viewmodels.TestViewModel
 import com.example.simplemenuexample.views.subview.CustomSnackBar
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_snack_bar.*
-import kotlinx.android.synthetic.main.activity_user_recycler_view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SnackBarActivity : AppCompatActivity() {
@@ -57,7 +54,7 @@ class SnackBarActivity : AppCompatActivity() {
 
     private fun initAdapter() {
         userAdapter = TestUserAdapter()
-        rc_test_view.apply{
+        binding.rcTestView.apply{
             layoutManager = LinearLayoutManager(this@SnackBarActivity, LinearLayoutManager.VERTICAL, false)
             adapter = userAdapter
         }
