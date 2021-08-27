@@ -23,7 +23,6 @@ import com.example.simplemenuexample.viewmodels.MainViewModel
 import com.example.simplemenuexample.views.subview.CustomBottomDialog
 import com.example.simplemenuexample.views.subview.PermissionDialog
 import com.example.simplemenuexample.views.subview.UserAddDialogFragment
-import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), MenuClickInterface {
@@ -58,9 +57,9 @@ class MainActivity : AppCompatActivity(), MenuClickInterface {
     }
 
     private fun initAdapter() {
-        rc_main_view.layoutManager = LinearLayoutManager(this)
+        binding.rcMainView.layoutManager = LinearLayoutManager(this)
         menuAdapter = MenuAdapter(this)
-        rc_main_view.adapter = menuAdapter
+        binding.rcMainView.adapter = menuAdapter
     }
 
     private fun initViewModel() { }
@@ -106,7 +105,8 @@ class MainActivity : AppCompatActivity(), MenuClickInterface {
         val readPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
         val internetPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.INTERNET)
 
-        if (cameraPermission!= PackageManager.PERMISSION_GRANTED && readPermission != PackageManager.PERMISSION_GRANTED) {
+        if (cameraPermission != PackageManager.PERMISSION_GRANTED && readPermission != PackageManager.PERMISSION_GRANTED &&
+            internetPermission != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                 arrayOf(
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
