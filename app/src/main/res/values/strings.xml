@@ -37,4 +37,8 @@
     <!--    snack-->
     <string name="snack_start_get_api">Start server connection..</string>
     <string name="snack_failed_get_api">Server connection failed..</string>
+
+    <!--    page-->
+    <string name="page_user_title">User</string>
+    <string name="page_user_detail_title">User detail</string>
 </resources>
