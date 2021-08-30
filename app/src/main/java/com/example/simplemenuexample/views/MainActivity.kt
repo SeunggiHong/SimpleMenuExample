@@ -19,6 +19,7 @@ import com.example.simplemenuexample.utils.Menu.MENU_BOTTOM_SHEET_DIALOG
 import com.example.simplemenuexample.utils.Menu.MENU_POPUP_DIALOG_VIEW
 import com.example.simplemenuexample.utils.Menu.MENU_RECYCLER_VIEW
 import com.example.simplemenuexample.utils.Menu.MENU_SNACKBAR_VIEW
+import com.example.simplemenuexample.utils.Menu.MENU_VIEW_PAGER
 import com.example.simplemenuexample.viewmodels.MainViewModel
 import com.example.simplemenuexample.views.subview.CustomBottomDialog
 import com.example.simplemenuexample.views.subview.PermissionDialog
@@ -79,6 +80,10 @@ class MainActivity : AppCompatActivity(), MenuClickInterface {
             }
             MENU_BOTTOM_SHEET_DIALOG -> {
                 showBottomSheetDialog()
+            }
+            MENU_VIEW_PAGER -> {
+                val intent = Intent(this, PagerActivity::class.java)
+                startActivity(intent)
             }
         }
 
