@@ -1,4 +1,4 @@
-package com.example.simplemenuexample.views
+package com.example.simplemenuexample.views.subview
 
 import androidx.fragment.app.Fragment
 

@@ -1,4 +1,4 @@
-package com.example.simplemenuexample.views
+package com.example.simplemenuexample.views.subview
 
 import android.os.Bundle
 import android.view.LayoutInflater
