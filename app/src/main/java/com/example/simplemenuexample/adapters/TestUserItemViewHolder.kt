@@ -4,17 +4,17 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.simplemenuexample.R
+import com.example.simplemenuexample.databinding.ItemUserBinding
 import com.example.simplemenuexample.models.data.TestItem
 import com.example.simplemenuexample.utils.App
-import kotlinx.android.synthetic.main.item_user.view.*
 
-class TestUserItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-    private val userImage = itemView.iv_user_pic
-    private val userName = itemView.tv_user_name
-    private val userEmail = itemView.tv_user_mail
-    private val userPhone = itemView.tv_user_phone
-    private val userContent = itemView.tv_user_content
-    private val userDelete = itemView.btn_user_delete
+class TestUserItemViewHolder(binding: ItemUserBinding): RecyclerView.ViewHolder(binding.rootView) {
+    private val userImage = binding.ivUserPic
+    private val userName = binding.tvUserName
+    private val userEmail = binding.tvUserMail
+    private val userPhone = binding.tvUserPhone
+    private val userContent = binding.tvUserContent
+    private val userDelete = binding.btnUserDelete
 
     fun bindViewHolder(userData: TestItem) {
         Glide.with(App.instance)

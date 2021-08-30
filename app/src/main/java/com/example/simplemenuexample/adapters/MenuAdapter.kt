@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplemenuexample.R
 import com.example.simplemenuexample.adapters.interfaces.MenuClickInterface
+import com.example.simplemenuexample.databinding.ItemMenuBinding
 import com.example.simplemenuexample.models.data.MenuData
 
 
@@ -19,8 +20,8 @@ class MenuAdapter(clickInterface: MenuClickInterface) : RecyclerView.Adapter<Men
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuItemViewHolder {
-        val itemViewHolder = LayoutInflater.from(parent.context).inflate(R.layout.item_menu, parent, false)
-        return MenuItemViewHolder(itemViewHolder, this.mClickInterface!!)
+        val binding = ItemMenuBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MenuItemViewHolder(binding, this.mClickInterface!!)
     }
 
     override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {

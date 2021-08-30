@@ -13,7 +13,6 @@ import com.example.simplemenuexample.databinding.ActivityUserRecyclerViewBinding
 import com.example.simplemenuexample.models.data.UserData
 import com.example.simplemenuexample.utils.Constants.TAG
 import com.example.simplemenuexample.viewmodels.MainViewModel
-import kotlinx.android.synthetic.main.activity_user_recycler_view.*
 import kotlinx.coroutines.DelicateCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -48,7 +47,7 @@ class UserActivity : AppCompatActivity(), UserClickInterface {
 
     private fun initAdapter() {
         userAdapter = UserAdapter(this)
-        rc_user_view.apply{
+        binding.rcUserView.apply {
             layoutManager = LinearLayoutManager(this@UserActivity, LinearLayoutManager.VERTICAL, false)
             adapter = userAdapter
         }
