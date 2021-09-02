@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="user"
+            type="com.example.simplemenuexample.models.data.UserData"/>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener"/>
+    </data>
+
+    <com.example.simplemenuexample.views.subview.MaskedCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="26dp"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false"
+        app:shapeAppearanceOverlay="@style/CustomMaskedCardStyle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/plant_item_image"
+                android:layout_width="0dp"
+                android:layout_height="95dp"
+                android:scaleType="centerCrop"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/plant_item_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/plant_item_image"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.example.simplemenuexample.views.subview.MaskedCardView>
+
+</layout>
