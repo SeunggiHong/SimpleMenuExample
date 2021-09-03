@@ -35,10 +35,9 @@ class MenuAdapter(clickInterface: MenuClickInterface) : RecyclerView.Adapter<Men
     private fun initMenuData() {
         mMenuList.add(MenuData("RecyclerView", "RecyclerView"))
         mMenuList.add(MenuData("SnackBar", "SnackBarView"))
-        mMenuList.add(MenuData("Popup Dialog", "Popup DialogView"))
+        mMenuList.add(MenuData("PopupDialog", "PopupDialogView"))
         mMenuList.add(MenuData("BottomSheetDialog", "BottomSheetDialog"))
         mMenuList.add(MenuData("ViewPager", "ViewPager2"))
-        mMenuList.add(MenuData("seunggiHong", "tmdrl1026@naver.com"))
         mMenuList.add(MenuData("seunggiHong", "tmdrl1026@naver.com"))
     }
 

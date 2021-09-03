@@ -13,6 +13,7 @@ import com.example.simplemenuexample.R
 import com.example.simplemenuexample.databinding.DialogBottomSheetBinding
 import com.example.simplemenuexample.utils.Constants
 import com.example.simplemenuexample.utils.Constants.TAG
+import com.example.simplemenuexample.views.PagerActivity
 import com.example.simplemenuexample.views.SnackBarActivity
 import com.example.simplemenuexample.views.UserActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -49,19 +50,17 @@ class CustomBottomDialog: BottomSheetDialogFragment(), View.OnClickListener {
             binding.tvRecycler.id -> {
                 val intent = Intent(activity, UserActivity::class.java)
                 startActivity(intent)
-                this.dismiss()
             }
             binding.tvSnack.id -> {
                 val intent = Intent(activity, SnackBarActivity::class.java)
                 startActivity(intent)
-                this.dismiss()
             }
             binding.tvPopup.id -> {
                 showUserAddDialog()
-                this.dismiss()
             }
             binding.tvViewpager.id -> {
-
+                val intent = Intent(activity, PagerActivity::class.java)
+                startActivity(intent)
             }
         }
     }
