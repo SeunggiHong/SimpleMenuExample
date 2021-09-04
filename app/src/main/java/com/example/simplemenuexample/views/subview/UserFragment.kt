@@ -33,7 +33,6 @@ class UserFragment : Fragment() {
         viewModel.getAllUserList().observe(viewLifecycleOwner) { users ->
             adapter.submitList(users)
         }
-
     }
 
 }
