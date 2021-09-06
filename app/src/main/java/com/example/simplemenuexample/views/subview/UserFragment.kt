@@ -12,6 +12,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UserFragment : Fragment() {
     private lateinit var binding: FragmentUserPageBinding
+    private lateinit var userAdapter: UserPageAdapter
     private val viewModel: MainViewModel by viewModel()
 
     override fun onCreateView(
@@ -22,17 +23,21 @@ class UserFragment : Fragment() {
         binding = FragmentUserPageBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
-        val adapter = UserPageAdapter()
-        binding.userList.adapter = adapter
-        subscribeUi(adapter)
+        initAdapter()
+        initViewModel()
 
         return binding.root
     }
 
-    private fun subscribeUi(adapter: UserPageAdapter) {
-        viewModel.getAllUserList().observe(viewLifecycleOwner) { users ->
-            adapter.submitList(users)
-        }
+    private fun initAdapter() {
+        userAdapter = UserPageAdapter()
+        binding.userList.adapter = userAdapter
+    }
+
+    private fun initViewModel() {
+        viewModel.getAllUserList().observe( viewLifecycleOwner, { userlist ->
+            userAdapter.setItems(userlist)
+        })
     }
 
 }

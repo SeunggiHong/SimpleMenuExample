@@ -1,20 +1,18 @@
 package com.example.simplemenuexample.adapters
 
-import android.annotation.SuppressLint
-import android.os.Build
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.simplemenuexample.R
 import com.example.simplemenuexample.databinding.ItemUserPageBinding
 import com.example.simplemenuexample.models.data.UserData
+import com.example.simplemenuexample.utils.App
 
-class UserPageAdapter() : ListAdapter<UserData, RecyclerView.ViewHolder>(UserDiffCallback()) {
+class UserPageAdapter() : RecyclerView.Adapter<UserPageAdapter.UserViewHolder>() {
+    var userList = mutableListOf<UserData>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         return UserViewHolder(
             ItemUserPageBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -24,32 +22,31 @@ class UserPageAdapter() : ListAdapter<UserData, RecyclerView.ViewHolder>(UserDif
         )
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val user = getItem(position)
-        (holder as UserViewHolder).bind(user)
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+        holder.bindViewHolder(this.userList[position])
+    }
+
+    override fun getItemCount(): Int {
+        return userList.size
     }
 
     class UserViewHolder(
         private val binding: ItemUserPageBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: UserData) {
-            binding.apply {
-                user = item
-                executePendingBindings()
-            }
+
+        fun bindViewHolder(userData: UserData) {
+            Glide.with(App.instance)
+                .load(userData.userImage)
+                .placeholder(R.drawable.ic_default_user)
+                .into(binding.ivUserPic)
+            binding.tvUserName.text = userData.userName
         }
+
     }
 
-}
-
-private class UserDiffCallback: DiffUtil.ItemCallback<UserData>() {
-    @RequiresApi(Build.VERSION_CODES.P)
-    override fun areItemsTheSame(oldItem: UserData, newItem: UserData): Boolean {
-        return oldItem.id == newItem.id
+    fun setItems(it: List<UserData>) {
+        this.userList = it.toMutableList()
+        notifyDataSetChanged()
     }
 
-    @SuppressLint("DiffUtilEquals")
-    override fun areContentsTheSame(oldItem: UserData, newItem: UserData): Boolean {
-        return oldItem == newItem
-    }
 }

@@ -6,9 +6,6 @@
 
     <data>
         <variable
-            name="user"
-            type="com.example.simplemenuexample.models.data.UserData"/>
-        <variable
             name="clickListener"
             type="android.view.View.OnClickListener"/>
     </data>
@@ -33,28 +30,27 @@
                 android:layout_height="278dp"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@{user.userImage}"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_collapseMode="parallax"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_collapseMode="parallax" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_detail_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center_horizontal"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="@{user.userName}"
+                android:gravity="center_horizontal"
+                android:text="@string/text_user_name"
                 android:textAppearance="?attr/textAppearanceHeadline5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_detail"
-                tools:text="John"/>
+                tools:text="John" />
 
             <TextView
                 android:id="@+id/tv_detail_email"
@@ -62,14 +58,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="@{user.userName}"
-                android:textAppearance="?attr/textAppearanceListItem"
                 android:gravity="center_horizontal"
+                android:text="@string/text_user_email"
+                android:textAppearance="?attr/textAppearanceListItem"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_detail_name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:text="john@gmail.com"/>
+                tools:text="john@gmail.com" />
 
             <TextView
                 android:id="@+id/tv_detail_phone"
@@ -77,8 +72,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="@{user.userPhone}"
                 android:gravity="center_horizontal"
+                android:text="@string/text_user_phone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_detail_email"
@@ -90,8 +85,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="@{user.userContent}"
                 android:gravity="center_horizontal"
+                android:text="@string/text_user_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_detail_phone"

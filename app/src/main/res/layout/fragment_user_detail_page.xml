@@ -17,7 +17,7 @@
             android:layout_marginEnd="12dp"
             android:layout_marginTop="12dp"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            tools:listitem="@layout/item_user_page"/>
+            tools:listitem="@layout/item_user_detail_page"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

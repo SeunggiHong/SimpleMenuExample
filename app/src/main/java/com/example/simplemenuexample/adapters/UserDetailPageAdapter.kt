@@ -9,13 +9,17 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.simplemenuexample.R
 import com.example.simplemenuexample.databinding.ItemUserDetailPageBinding
 import com.example.simplemenuexample.databinding.ItemUserPageBinding
 import com.example.simplemenuexample.models.data.UserData
+import com.example.simplemenuexample.utils.App
 
-class UserDetailPageAdapter() : ListAdapter<UserData, RecyclerView.ViewHolder>(UserDetailDiffCallback()) {
+class UserDetailPageAdapter() : RecyclerView.Adapter<UserDetailPageAdapter.UserViewHolder>() {
+    var userList = mutableListOf<UserData>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         return UserViewHolder(
             ItemUserDetailPageBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -25,32 +29,34 @@ class UserDetailPageAdapter() : ListAdapter<UserData, RecyclerView.ViewHolder>(U
         )
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val user = getItem(position)
-        (holder as UserViewHolder).bind(user)
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+        holder.bindViewHolder(this.userList[position])
+    }
+
+    override fun getItemCount(): Int {
+        return userList.size
     }
 
     class UserViewHolder(
         private val binding: ItemUserDetailPageBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: UserData) {
-            binding.apply {
-                user = item
-                executePendingBindings()
-            }
+
+        fun bindViewHolder(userData: UserData) {
+            Glide.with(App.instance)
+                .load(userData.userImage)
+                .placeholder(R.drawable.ic_default_user)
+                .into(binding.ivDetail)
+            binding.tvDetailName.text = userData.userName
+            binding.tvDetailEmail.text = userData.userEmail
+            binding.tvDetailPhone.text = userData.userPhone
+            binding.tvDetailContent.text = userData.userContent
         }
+
     }
 
-}
-
-private class UserDetailDiffCallback: DiffUtil.ItemCallback<UserData>() {
-    @RequiresApi(Build.VERSION_CODES.P)
-    override fun areItemsTheSame(oldItem: UserData, newItem: UserData): Boolean {
-        return oldItem.id == newItem.id
+    fun setItems(it: List<UserData>) {
+        this.userList = it.toMutableList()
+        notifyDataSetChanged()
     }
 
-    @SuppressLint("DiffUtilEquals")
-    override fun areContentsTheSame(oldItem: UserData, newItem: UserData): Boolean {
-        return oldItem == newItem
-    }
 }
