@@ -31,7 +31,7 @@ class UserAddDialogFragment : DialogFragment() {
 
     private val viewModel: MainViewModel by viewModel()
     private val userData: UserData? = null
-    private var imageUri: String? = null
+    private var imageUri: String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,7 +95,7 @@ class UserAddDialogFragment : DialogFragment() {
                 userEmail   = binding.etEmail.text.toString().trim(),
                 userPhone   = binding.etPhone.text.toString().trim(),
                 userContent = binding.etContent.text.toString().trim(),
-                userImage   = imageUri
+                userImage   =   imageUri
             )
             viewModel.insertUser(userData)
             Toast.makeText(context, R.string.toast_user_add_success, Toast.LENGTH_SHORT).show()
